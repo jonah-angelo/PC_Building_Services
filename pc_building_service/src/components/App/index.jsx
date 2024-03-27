@@ -1,18 +1,24 @@
+import { Routes, Route, Link } from 'react-router-dom'
+import ContactPage from '../ContactPage'
+import AboutPage from '../AboutPage'
+import HomePage from '../HomePage'
+import ServicesPage from '../ServicesPage'
+import NavBar from '../NavBar' 
+import NotFoundPage from '../NotFoundPage'
 import './styles.css'
 
 function App() {
   return (
     <>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-            <a href="/user">User Profile</a>
-        </nav>
+        < NavBar />
 
-        <main>
-            <h1>App Component</h1>
-        </main>
+        <Routes>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
     </>
   )
 }
